@@ -33,9 +33,12 @@ const cart = [
     }
 ]
 
-//CODE HERE
+const summedPrice = cart.reduce((temp, x) => { 
+    return temp + x.price;
+  }, 0);
+  
+  console.log(summedPrice); 
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -53,8 +56,14 @@ const cart = [
     decimals, for example: .06 for a 6% tax.
 */
 
-//CODE HERE
+function calcFinalPrice(cartTotal, couponValue, tax) {
 
+    const taxValue = cartTotal * tax;
+    const totalAfterTax = carTotal + taxValue;
+    const finalPrice = totalAfterTax - couponValue;
+
+    return finalPrice
+}
 
 
 //////////////////PROBLEM 3////////////////////
@@ -77,14 +86,16 @@ const cart = [
     Your object should have at least 4 properties. 
 */
 
-/*
-    TEXT ANSWER HERE
-
-*/
-
+// Here I am creating a Motorcycle object calling in myMotrocycle, and I gave it make, model, year and top speed properties
 /*
     Now, create a customer object following your own
     guidelines.
 */
 
-//CODE HERE
+const myMotorcyle = new Object();
+    myMotorcyle.make = 'Ducati';
+    myMotorcyle.model = 'Panigale';
+    myMotorcyle.year = 2022;
+    myMotorcyle.topSpeed = 200;
+
+

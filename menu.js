@@ -30,7 +30,16 @@
     'kids'
 */
 
-//CODE HERE
+let pizza = {
+
+    name: 'Philly',
+    price: 30,
+    category: 'entree',
+    popularity: 4,
+    rating: 4,
+    tags: ["meat", "classic"]
+
+};
 
 
 
@@ -42,7 +51,7 @@
     Use dot notation to access the value.
 */
 
-//CODE HERE
+console.log(pizza.popularity)
 
 
 /*
@@ -52,7 +61,7 @@
     get the value.
 */
 
-//CODE HERE
+console.log(pizza.tags[1])
 
 
 /*
@@ -61,8 +70,9 @@
     
     Print the value of your new price variable.
 */
-
-//CODE HERE
+const pizza = {price: 25}
+const {price} = pizza;
+console.log(pizza.price)
 
 
 /*
@@ -72,7 +82,8 @@
     Print the value of your category variable. 
 */
 
-//CODE HERE
+const {category} = pizza
+return category
 
 
 //////////////////PROBLEM 3////////////////////
@@ -87,7 +98,7 @@
     data in some functions that you'll write.
 */
 
-//CODE HERE
+let foodArr = ['name', 'category', 'popularity', 'rating', 'tags'];
 
 
 
@@ -105,7 +116,26 @@
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+filterFood = (array, requiredTag) => {
+    let result = [] 
+  
+    array.forEach(element => {
+        element.tags.forEach(tag => { 
+            if (tag == requiredTag)
+                result.push(element)
+        }); 
+    }); 
+     
+    return result
+  }
+  
+  let result = []
+  result = filterFood(foodArr, 'classic');
+  
+  if (result.length > 0)
+    console.log(result);
+  else 
+    console.log("Item not found");
 
 
 
@@ -151,11 +181,48 @@
 //CODE HERE
 
 
-/*
-    Invoke the `filterByProperty` function passing
-    in a value for each paramter.
+function filterByProperty(property, number, type) {
 
-    You'll have to console.log to see the filtered array
-*/
+    let filteredArray = [];
+    
+    for (let i = 0; i < foods.length; i++) {
+    
+    let food = foods[i];
+    
+    if (type === 'above') {
+    
+    if (food[property] > number) {
+    
+    filteredArray.push(food);
+    
+    }
+    
+    } else if (type === 'below') {
+    
+    if (food[property] < number) {
+    
+    filteredArray.push(food);
+    
+    }
+    
+    }
+    
+    }
+    
+    return filteredArray;
+    
+    }
+    
+    let ratings = filterByProperty('rating', 3, 'above');
+    
+    console.log(ratings); 
+    
+    let popular = filterByProperty('popularity', 60, 'below');
+    
+    console.log(popular); 
+    
+    let prices = filterByProperty('price', 3, 'below');
+    
+    console.log(prices); 
+    
 
-//CODE HERE
